@@ -13,10 +13,6 @@ class LevelActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level)
 
-        txt_score_f.text = "${TranslationUtils.fProgress}/10"
-        txt_score_t.text = "${TranslationUtils.tProgress}/10"
-        txt_score_m.text = "${TranslationUtils.mProgress}/10"
-
         layout_f.setOnClickListener {
             launchGame("F")
         }
@@ -26,6 +22,13 @@ class LevelActivity : AppCompatActivity() {
         layout_m.setOnClickListener {
             launchGame("M")
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        txt_score_f.text = "${TranslationUtils.fProgress}/10"
+        txt_score_t.text = "${TranslationUtils.tProgress}/10"
+        txt_score_m.text = "${TranslationUtils.mProgress}/10"
     }
 
     private fun launchGame(letter: String) {
